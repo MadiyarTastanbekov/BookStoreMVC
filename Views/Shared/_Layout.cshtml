@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title Books</title>
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        html, body {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            overflow: hidden;
+            background: #EDEDED url(https://wallpapertag.com/wallpaper/full/7/1/a/515814-vertical-beautiful-landscapes-wallpapers-2560x1600-download.jpg) center center no-repeat
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul class="menu">
+            <li>@Html.ActionLink("Главная", "Index", "Home")</li>
+        </ul>
+    </nav>
+    @RenderBody()
+    <div>
+        <center>
+            <footer>
+                <p>&copy; @DateTime.Now.Year </p>
+            </footer>
+        </center>
+    </div>
+
+</body>
+</html>
