@@ -26,12 +26,11 @@
         </ul>
     </nav>
     @RenderBody()
-    <div>
-        <center>
-            <footer>
-                <p>&copy; @DateTime.Now.Year </p>
-            </footer>
-        </center>
+    <footer>@RenderSection("Footer")</footer>
+    <div id="copyright">
+
+        <h3>@DateTime.Now.ToShortTimeString() / @DateTime.Now.Day / @DateTime.Now.Month / @DateTime.Now.Year </h3>
+
     </div>
 
 </body>

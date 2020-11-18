@@ -46,3 +46,9 @@ input {
 div {
     left:50px;
 }
+#copyright {
+    position: absolute;
+    bottom: 1em;
+    right: 1em;
+    text-align: right;
+}

@@ -42,37 +42,64 @@ namespace BookStoreMVC.Controllers
         {
             return DateTime.Now;
         }
-        public string Square(int a, int h)
+        public FileResult Abaijoli(int id)
         {
-            double s = a * h / 2.0;
-            return "<h2>Площадь треугольника с основанием " + a +
-            " и высотой " + h + " равна " + s + "</h2>";
+            if (id == 1)
+            {
+                string image = @"D:/BookStoreMVC/Files/Абай жолы. І кітап.pdf";
+                string file_type_Abai = "application/pdf";
+                return File(image, file_type_Abai);
+            }
+            if (id == 2)
+            {
+                string image = @"D:/BookStoreMVC/Files/original MSSQL.pdf";
+                string file_type_Abai = "application/pdf";
+                return File(image, file_type_Abai);
+            }
+            if (id == 3)
+            {
+                string image = @"D:/BookStoreMVC/Files/Pattern.pdf";
+                string file_type_Abai = "application/pdf";
+                return File(image, file_type_Abai);
+            }
+            string image1 = @"D:/BookStoreMVC/Files/Абай жолы. І кітап.pdf";
+            string file_type_Abai2 = "application/pdf";
+            return File(image1, file_type_Abai2);
+
         }
-        public string Square1(int a = 10, int h = 5)
-        {
-            double s = a * h / 2.0;
-            return "<h2>Площадь треугольника с основанием " + a +
-            " и высотой " + h + " равна " + s + "</h2>";
-        }
-        public string Square1()
-        {
-            int a = Int32.Parse(Request.Params["a"]);
-            int h = Int32.Parse(Request.Params["h"]);
-            double s = a * h / 2.0;
-            return "<h2>Площадь треугольника с основанием " + a + " и высотой " + h + " равна " + s + "</h2>";
-        }
-        public ActionResult GetHtml()
-        {
-            return new HtmlResult("<h2> Hi Madiyar</h2>");
-        }
-        public ActionResult GetImage()
-        {
-            string path = " ../Images/m1.png";
-            return new ImageResult(path);
-        }
-        public ViewResult SomeMethod()
-        {
-            return View("./Views/Home/Index.cshtml");
-        }
+        #region
+        //public string Square(int a, int h)
+        //{
+        //    double s = a * h / 2.0;
+        //    return "<h2>Площадь треугольника с основанием " + a +
+        //    " и высотой " + h + " равна " + s + "</h2>";
+        //}
+        //public string Square1(int a = 10, int h = 5)
+        //{
+        //    double s = a * h / 2.0;
+        //    return "<h2>Площадь треугольника с основанием " + a +
+        //    " и высотой " + h + " равна " + s + "</h2>";
+        //}
+        //public string Square1()
+        //{
+        //    int a = Int32.Parse(Request.Params["a"]);
+        //    int h = Int32.Parse(Request.Params["h"]);
+        //    double s = a * h / 2.0;
+        //    return "<h2>Площадь треугольника с основанием " + a + " и высотой " + h + " равна " + s + "</h2>";
+        //}
+        //public ActionResult GetHtml()
+        //{
+        //    return new HtmlResult("<h2> Hi Madiyar</h2>");
+        //}
+        //public ActionResult GetImage()
+        //{
+        //    string path = " ../Images/m1.png";
+        //    return new ImageResult(path);
+        //}
+        //public ViewResult SomeMethod()
+        //{
+        //    return View("./Views/Home/Index.cshtml");
+        //}
+        #endregion
     }
 }

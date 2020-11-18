@@ -1,26 +1,30 @@
-﻿@{
+﻿
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Книжный магазин";
 }
-
-
+@section Footer {
+    Все права защищены. Syte Corp. 2020.
+}
 <h3>&copy;Распродажа книг</h3>
 <center>
-    <div >
+    <div>
         <table width="400" border="1" style="border-collapse:collapse;">
             <tr style="width:auto;border-right:3px solid; border-color: black;background-color: red;">
-                <td ><p>Название книги</p></td>
-                <td ><p>  Автор </p></td>
+                <td><p>Название книги</p></td>
+                <td><p>  Автор </p></td>
                 <td><p> Цена </p></td>
             </tr>
             @foreach (BookStoreMVC.Models.Book b in ViewBag.BS)
             {
-        <tr style="width:auto;border:1px solid; border-color: black;background-color: red;">
-            <td><p>@b.Name</p></td>
-            <td><p>@b.Author </p></td>
-            <td><p>@b.Price </p></td>
-            <td><img src="@b.Image" alt="загрузка..." width="30" height="50" /></td>
-            <td><a href="/Home/Buy/@b.Id"><p>Buy</p> </a></td>
-        </tr>
+                <tr style="width:auto;border:1px solid; border-color: black;background-color: red;">
+                    <td><p>@b.Name</p></td>
+                    <td><p>@b.Author </p></td>
+                    <td><p>@b.Price </p></td>
+                    <td><img src="@b.Image" alt="загрузка..." width="30" height="50" /></td>
+                    <td><a href="/Home/Buy/@b.Id"><p>Buy</p> </a></td>
+                    <td><a href="/Home/Abaijoli/@b.Id" rel="noopener noreferrer" target="_blank"><p class="color1">View</p> </a></td>
+                </tr>
 
             }
         </table>
