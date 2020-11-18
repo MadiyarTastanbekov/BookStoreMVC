@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title Books</title>
+    <title>@ViewBag.Title </title>
     <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
     <style type="text/css">
         html, body {
@@ -22,11 +22,11 @@
 <body>
     <nav>
         <ul class="menu">
-            <li>@Html.ActionLink("Главная", "Index", "Home")</li>
+            <li>@Html.ActionLink("Главная", "Index", "Home","Buy")</li>
         </ul>
     </nav>
     @RenderBody()
-    <footer>@RenderSection("Footer")</footer>
+
     <div id="copyright">
 
         <h3>@DateTime.Now.ToShortTimeString() / @DateTime.Now.Day / @DateTime.Now.Month / @DateTime.Now.Year </h3>

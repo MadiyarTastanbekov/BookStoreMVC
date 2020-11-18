@@ -32,7 +32,7 @@ namespace BookStoreMVC.Controllers
             purchase.DateTime = DateTime.Now;
             db.Purchases.Add(purchase);
             db.SaveChanges();
-            return " thank you " + purchase.Person + ", what bought book \n"+"Date bought:"+purchase.DateTime;
+            return "Thank you " + purchase.Person + ", what bought book \n" + "Date bought:" + purchase.DateTime;
         }
         /// <summary>
         /// Приватных методов метод действий не бывает 
