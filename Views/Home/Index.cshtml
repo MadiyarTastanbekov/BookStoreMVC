@@ -1,6 +1,6 @@
-﻿
+﻿@using BookStoreMVC.Models
 @{
-   
+
     ViewBag.Title = "Книжный магазин";
 }
 
@@ -18,7 +18,7 @@
                 <tr style="width:auto;border:1px solid; border-color: black;background-color: red;">
                     <td><p>@b.Name</p></td>
                     <td><p>@b.Author </p></td>
-                    <td><p>@b.Price </p></td>
+                    <td><p>@b.Price тг</p></td>
                     <td><img src="@b.Image" alt="загрузка..." width="30" height="50" /></td>
                     <td><a href="/Home/Buy/@b.Id"><p>Buy</p> </a></td>
                     <td><a href="/Home/Abaijoli/@b.Id" rel="noopener noreferrer" target="_blank"><p class="color1">View</p> </a></td>
@@ -28,3 +28,10 @@
         </table>
     </div>
 </center>
+
+<div><h5>Список городов</h5>
+    @{ string[] cites = { "Астана", "Алматы", "Шымкент" }; }
+    @using BookStoreMVC.Helpers
+    @Html.CreateList(cites)
+    
+</div>

@@ -1,40 +1,36 @@
 ﻿
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Покупка книги";
 }
 
-<!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Buy</title>
-</head>
-<body>
-    <div>
-        <h3>&copy;Форма оформления покупки</h3>
-        <form method="post" action="">
-            <input type="hidden" value="@ViewBag.BookId" name="BookId" />
-            <table>
-                <tr>
-                    <td>
-                        <p>Введите свое имя </p>
-                    </td>
-                    <td>
-                        <input type="text" name="Person" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <p>Введите свой номер телефона </p>
-                    </td>
-                    <td>
-                        <input type="number" name="Phone" />
-                    </td>
-                </tr>
-                <tr><td><input type="submit" value="Отправить" /> </td><td></td></tr>
-            </table>
-        </form>
-    </div>
-</body>
-</html>
+<div>
+    <h3>&copy;Форма оформления покупки</h3>
+    @using (Html.BeginForm("Buy", "Home", FormMethod.Post))
+    {
+       @* <input type="hidden" value="@ViewBag.BookId" name="BookId" />*@
+        @Html.Hidden("BookId",ViewBag.BookId as string)
+        <table>
+            <tr>
+                <td>
+                    <p>@Html.Label("Person", "Введите свое имя")</p>
+                </td>
+                <td>
+                    @Html.TextBox("Person", "")
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>@Html.Label("Phone", "Введите свой номер телефона") </p>
+                </td>
+                <td>
+                    @Html.TextBox("Phone", "")
+                </td>
+            </tr>
+            <tr><td><input type="submit" value="Отправить" /> </td><td></td></tr>
+        </table>
+    }
+    
+</div>
+

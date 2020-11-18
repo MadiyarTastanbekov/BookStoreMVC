@@ -22,7 +22,7 @@
 <body>
     <nav>
         <ul class="menu">
-            <li>@Html.ActionLink("Главная", "Index", "Home","Buy")</li>
+            <li>@Html.ActionLink("Главная", "Index", "Home", "Buy")</li>
         </ul>
     </nav>
     @RenderBody()
@@ -30,8 +30,8 @@
     <div id="copyright">
 
         <h3>@DateTime.Now.ToShortTimeString() / @DateTime.Now.Day / @DateTime.Now.Month / @DateTime.Now.Year </h3>
-
     </div>
+    @*<footer>@RenderSection("Footer")</footer>*@
 
 </body>
 </html>

@@ -129,6 +129,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\ListHelper.cs" />
     <Compile Include="Migrations\202010170745100_first.cs" />
     <Compile Include="Migrations\202010170745100_first.designer.cs">
       <DependentUpon>202010170745100_first.cs</DependentUpon>
@@ -188,6 +189,7 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Buy.cshtml" />
+    <Content Include="Views\Home\GetList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202010170745100_first.resx">
