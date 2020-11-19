@@ -12,6 +12,9 @@
                 <td><p>Название книги</p></td>
                 <td><p>  Автор </p></td>
                 <td><p> Цена </p></td>
+                <td><p> Изображение </p></td>
+                <td><p> Купить</p></td>
+                <td><p> Посмотреть </p></td>
             </tr>
             @foreach (BookStoreMVC.Models.Book b in ViewBag.BS)
             {
@@ -23,15 +26,9 @@
                     <td><a href="/Home/Buy/@b.Id"><p>Buy</p> </a></td>
                     <td><a href="/Home/Abaijoli/@b.Id" rel="noopener noreferrer" target="_blank"><p class="color1">View</p> </a></td>
                 </tr>
-
             }
         </table>
     </div>
 </center>
 
-<div><h5>Список городов</h5>
-    @{ string[] cites = { "Астана", "Алматы", "Шымкент" }; }
-    @using BookStoreMVC.Helpers
-    @Html.CreateList(cites)
-    
-</div>
+

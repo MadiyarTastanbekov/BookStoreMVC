@@ -16,7 +16,10 @@ namespace BookStoreMVC.Helpers
                 TagBuilder li = new TagBuilder("li");
                 li.SetInnerText(item);
                 ul.InnerHtml += li.ToString();
+                
             }
+
+         
             return new MvcHtmlString(ul.ToString());
         }
     }

@@ -13,14 +13,10 @@ namespace BookStoreMVC.Controllers
         {
            IEnumerable<Book> books = db.Books;
             ViewBag.BS = books;
-
+           
             return View(books);
         }
-        [HttpPost]
-        public string Form(string text)
-        {
-            return text;
-        }
+       
         [HttpGet]
         public ActionResult Buy(int? id)
         {
@@ -71,6 +67,7 @@ namespace BookStoreMVC.Controllers
             string file_type_Abai2 = "application/pdf";
             return File(image1, file_type_Abai2);
         }
+
         public ActionResult GetList()
         {
             string[] states = { "Kazakhstan","Russia","Canada" };
