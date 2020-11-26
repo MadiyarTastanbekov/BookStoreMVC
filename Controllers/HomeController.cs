@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
 using BookStoreMVC.Util;
+using System.Linq;
+using System.Data.Entity;
 
 namespace BookStoreMVC.Controllers
 {
@@ -11,9 +13,9 @@ namespace BookStoreMVC.Controllers
        public BookContext db = new BookContext();
         public ActionResult Index()
         {
-           IEnumerable<Book> books = db.Books;
+            IEnumerable<Book> books = db.Books;
             ViewBag.BS = books;
-           
+
             return View(books);
         }
        
@@ -73,8 +75,59 @@ namespace BookStoreMVC.Controllers
             string[] states = { "Kazakhstan","Russia","Canada" };
             return PartialView(states);
         }
-       
-       
+       public ActionResult Views(int? id)
+        {
+            Book k = db.Books.Find(id);
+            if (k == null) return HttpNotFound();
+            return View(k);
+        }
+        [HttpGet]
+        public ActionResult EditBook(int? id)
+        {
+            Book book = db.Books.Find(id);
+            if (id != null)
+            {
+                return View(book);
+            }
+            return HttpNotFound();
+        }
+        [HttpPost]
+        public ActionResult EditBook(Book book)
+        {
+            db.Entry(book).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public ActionResult Create()
+        { 
+
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Create(Book book)
+        {
+            db.Entry(book).State = EntityState.Added;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public ActionResult Delete(int id)
+        {
+            Book b = db.Books.Find(id);
+            if (b == null)
+                return HttpNotFound();
+            return View(b);
+        }
+        [HttpPost,ActionName("Delete")]
+        public ActionResult DeleteConfing(int id)
+        {
+            Book book = db.Books.Find(id);
+            if (book == null) return HttpNotFound();
+            db.Books.Remove(book);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
         #region
         //public string Square(int a, int h)
         //{
@@ -109,5 +162,10 @@ namespace BookStoreMVC.Controllers
         //    return View("./Views/Home/Index.cshtml");
         //}
         #endregion
+        protected override void Dispose(bool disposing)
+        {
+            db.Dispose();
+            base.Dispose(disposing);
+        }
     }
 }

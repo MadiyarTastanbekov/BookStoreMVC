@@ -1,9 +1,9 @@
-﻿namespace BookStoreMVC.Migrations
+namespace BookStoreMVC.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class first : DbMigration
+    public partial class Books : DbMigration
     {
         public override void Up()
         {
@@ -15,6 +15,7 @@
                         Name = c.String(),
                         Author = c.String(),
                         Price = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        Image = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
             
